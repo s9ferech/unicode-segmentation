@@ -118,7 +118,7 @@ impl<'a> Iterator for Graphemes<'a> {
         if start == self.cursor_back.cur_cursor() {
             return None;
         }
-        let next = self.cursor.next_boundary(self.string, 0).unwrap().unwrap();
+        let next = self.cursor.next_boundary(&self.string[start..], start).unwrap().unwrap();
         Some(&self.string[start..next])
     }
 }
